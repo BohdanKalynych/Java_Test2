@@ -11,7 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         // adding objects to ArrayList
-        ArrayList<Song> SongList = new ArrayList();
+        ArrayList<Song> songList = new ArrayList();
 
         double TotalLenght = 0;
         for (int i = 0; i < 3; i++) {
@@ -25,7 +25,7 @@ public class Main {
             System.out.println("Please enter music style of the " + (i+1) + " song");
             songObject.setSongStyle(sc.nextLine().toUpperCase());
 
-            SongList.add(songObject);
+            songList.add(songObject);
         }
 
 
@@ -33,25 +33,25 @@ public class Main {
         // display ArrayList of entered song information
         System.out.println("Your entered list of songs: ");
         System.out.println();
-        for (int j = 0; j < SongList.size(); j++) {
-            Sng = SongList.get(j);
+        for (int j = 0; j < songList.size(); j++) {
+            Sng = songList.get(j);
             System.out.println(Sng);
         }
 
         System.out.println("Total lenght is equal to: " + TotalLenght);
 
-        Collections.sort(SongList, new Comparator<Song>() {
+        Collections.sort(songList, new Comparator<Song>() {
             public int compare(Song one, Song other) {
                 return one.getSongStyle().compareTo(other.getSongStyle());
             }
         });
 
         System.out.println("_____________________________________________________________________________________");
-        Song Sng2 = new Song();
+        Song Sng2 = null;
         System.out.println("Sorted list of songs by music style ");
         System.out.println();
-        for (int k = 0; k < SongList.size(); k++) {
-            Sng2 = SongList.get(k);
+        for (int k = 0; k < songList.size(); k++) {
+            Sng2 = songList.get(k);
             System.out.println(Sng2);
         }
 
@@ -66,15 +66,12 @@ public class Main {
 
         System.out.println();
         System.out.println("List of songs that are valid for entered range: ");
-        for (int l = 0; l < SongList.size(); l++) {
-            while (rangeValue1<SongList.get(l).SongLenght|| SongList.get(l).SongLenght<rangeValue2){
-                Song Sng3 = new Song();
-                Sng3 = SongList.get(l);
-                System.out.println(Sng);
+        for (Song song : songList) {
+            if (song.getSongLenght() > rangeValue1 && song.getSongLenght() < rangeValue2) {
+                System.out.println(song);
             }
-
-            /*if (rangeValue1<SongList.get(l).SongLenght|| SongList.get(l).SongLenght<rangeValue2){
-                Sng3 = SongList.get(l);
+            /*if (rangeValue1<songList.get(l).SongLenght|| songList.get(l).SongLenght<rangeValue2){
+                Sng3 = songList.get(l);
                 System.out.println(Sng3);
             }*/
         }
