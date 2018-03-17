@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // adding objects to ArrayList
         ArrayList<Song> songList = new ArrayList();
 
         double TotalLenght = 0;
@@ -28,14 +27,10 @@ public class Main {
             songList.add(songObject);
         }
 
-
-        Song Sng = new Song();
-        // display ArrayList of entered song information
         System.out.println("Your entered list of songs: ");
         System.out.println();
-        for (int j = 0; j < songList.size(); j++) {
-            Sng = songList.get(j);
-            System.out.println(Sng);
+        for (Song  songIterator1 : songList) {
+            System.out.println(songIterator1);
         }
 
         System.out.println("Total lenght is equal to: " + TotalLenght);
@@ -47,12 +42,10 @@ public class Main {
         });
 
         System.out.println("_____________________________________________________________________________________");
-        Song Sng2 = null;
         System.out.println("Sorted list of songs by music style ");
-        System.out.println();
+
         for (int k = 0; k < songList.size(); k++) {
-            Sng2 = songList.get(k);
-            System.out.println(Sng2);
+            System.out.println(songList.get(k));
         }
 
         System.out.println("____________________________________________________________________");
@@ -70,12 +63,7 @@ public class Main {
             if (song.getSongLenght() > rangeValue1 && song.getSongLenght() < rangeValue2) {
                 System.out.println(song);
             }
-            /*if (rangeValue1<songList.get(l).SongLenght|| songList.get(l).SongLenght<rangeValue2){
-                Sng3 = songList.get(l);
-                System.out.println(Sng3);
-            }*/
+
         }
-
-
     }
 }
