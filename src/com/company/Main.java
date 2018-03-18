@@ -19,7 +19,7 @@ public class Main {
             songObject.setSongName(sc.nextLine()); // asdasdasd/n
             System.out.println("Please enter lenght of the " + (i+1) + " song");
             songObject.setSongLenght(Double.valueOf(sc.nextLine())); //42/n
-            TotalLenght = TotalLenght + songObject.getSongLenght();
+            //TotalLenght = TotalLenght + songObject.getSongLenght();
 
             System.out.println("Please enter music style of the " + (i+1) + " song");
             songObject.setSongStyle(sc.nextLine().toUpperCase());
@@ -27,11 +27,15 @@ public class Main {
             songList.add(songObject);
         }
 
+
+
         System.out.println("Your entered list of songs: ");
         System.out.println();
         for (Song  songIterator1 : songList) {
             System.out.println(songIterator1);
+            TotalLenght = TotalLenght + songIterator1.getSongLenght();
         }
+
 
         System.out.println("Total lenght is equal to: " + TotalLenght);
 
